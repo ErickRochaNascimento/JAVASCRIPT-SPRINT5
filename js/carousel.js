@@ -10,7 +10,6 @@ let carouselArr = [];
 class Carousel {
 
     
-      
     static Start(arr){
         if(arr){
 
