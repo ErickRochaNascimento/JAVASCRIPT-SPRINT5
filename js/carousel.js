@@ -32,22 +32,13 @@ class Carousel {
 
 
                 Carousel.Next(); //start
-                Carousel._interval = setInterval(function () { Carousel.Next(); }, 5000);
+                Carousel._interval = setInterval(function () { Carousel.Next(); }, 3000);
             }
 
         } else {
             throw "Method Start need a Array Variable.";
         }
-
-
-
-
-
-
-
-
-
-
+        
     }
 
     static Next() {
