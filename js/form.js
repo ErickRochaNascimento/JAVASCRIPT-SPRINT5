@@ -15,6 +15,8 @@ class contato {
 
 function Post(form) {
 
+
+
     let data = new contato(
         form.elements.nome.value,
         form.elements.email.value,
@@ -24,20 +26,22 @@ function Post(form) {
         form.elements.contato.value
     );
     console.log(data);
-    Enviar();
+    form.reset();
 
+    alert(`Obrigado sr(a) ${data.nome} ${data.sobrenome}  os seus dados foram encaminhados com sucesso`);
+    return false;
 }
 
-function Enviar() {
+/*function Enviar() {
 
     var nome = document.getElementById("nome");
 
     if (nome.value != "") {
-
-        alert('Obrigado sr(a) ' + nome.value + ' os seus dados foram encaminhados com sucesso');
+ alert(`Obrigado sr(a) ${data.nome} ${data.sobrenome}  os seus dados foram encaminhados com sucesso`);
+       
     }
 
 
 
-}
+}*/
 
