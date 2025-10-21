@@ -19,7 +19,9 @@ div#carousel {
 }
 
 div#carousel-title a {
+    color: #1B357E;
     text-decoration: none;
+    list-style: none;
 }
 
 div#carousel-title  {
