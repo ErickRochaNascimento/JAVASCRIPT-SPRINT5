@@ -1,5 +1,3 @@
-
-
 //carousel
 
 //Array storage class
@@ -29,10 +27,34 @@ class Carousel {
                 Carousel._arr = arr;
                 Carousel._elCarousel = document.getElementById("carousel");
                 Carousel._elTitle = document.getElementById("carousel-title");
+                
+                // Novos elementos: botões de navegação
+                const prevBtn = document.getElementById("prevBtn");
+                const nextBtn = document.getElementById("nextBtn");
 
 
-                Carousel.Next(); //start
+                Carousel.UpdateContent(); // start com a nova função
                 Carousel._interval = setInterval(function () { Carousel.Next(); }, 3000);
+
+                // Adicionar Event Listeners para os botões
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        clearInterval(Carousel._interval); // Para o carrossel automático
+                        Carousel.Previous();
+                        // Reinicia o carrossel automático (opcional, mas recomendado)
+                        Carousel._interval = setInterval(function () { Carousel.Next(); }, 3000); 
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        clearInterval(Carousel._interval); // Para o carrossel automático
+                        Carousel.Next();
+                        // Reinicia o carrossel automático (opcional, mas recomendado)
+                        Carousel._interval = setInterval(function () { Carousel.Next(); }, 3000); 
+                    });
+                }
+
             }
 
         } else {
@@ -41,7 +63,8 @@ class Carousel {
         
     }
 
-    static Next() {
+    // Função separada para atualizar a exibição do carrossel
+    static UpdateContent() {
         if (!Carousel._arr || Carousel._size === 0) return;
 
         const item = Carousel._arr[Carousel._sequence];
@@ -62,10 +85,27 @@ class Carousel {
         a.textContent = item.title || "";
         a.style.textDecoration = "none";
         Carousel._elTitle.appendChild(a);
+    }
+
+    // Modifica Next para apenas atualizar o índice e chamar UpdateContent
+    static Next() {
+        if (!Carousel._arr || Carousel._size === 0) return;
 
         Carousel._sequence++;
         if (Carousel._sequence >= Carousel._size) {
             Carousel._sequence = 0;
         }
+        Carousel.UpdateContent();
+    }
+
+    // Novo método para voltar ao item anterior
+    static Previous() {
+        if (!Carousel._arr || Carousel._size === 0) return;
+
+        Carousel._sequence--;
+        if (Carousel._sequence < 0) {
+            Carousel._sequence = Carousel._size - 1; // Volta para o último item
+        }
+        Carousel.UpdateContent();
     }
 };
