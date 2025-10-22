@@ -64,7 +64,7 @@ O projeto é composto por **três páginas principais**, integradas entre si e c
 
 Você pode visualizar o projeto diretamente no GitHub Pages:
 
-👉 **[https://erickrochanascimento.github.io/JAVASCRIPT-SPRINT5/](https://erickrochanascimento.github.io/JAVASCRIPT-SPRINT5/index.html)**  
+👉 **[https://erickrochanascimento.github.io/JAVASCRIPT-SPRINT5/](https://erickrochanascimento.github.io/JAVASCRIPT-SPRINT5/)**  
 
 
 ## 💡 Principais Aprendizados
